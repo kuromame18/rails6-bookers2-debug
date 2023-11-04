@@ -1,0 +1,7 @@
+<h1><%= @user.name %>さんとのチャット</h1>
+<div id="messages"><%= render 'message', messages: @messages %></div>
+<%= form_with model:@message ,url:messages_path, method: :post, local:false, class:"w-100",html: {id: 'message_form'} do |f| %>
+  <%= f.text_field :chat, id:"message_field" %>
+  <%= f.hidden_field :receive_user_id,value: params[:id]%>
+  <%= f.submit %>
+<% end %>

@@ -26,6 +26,11 @@
   </tr>
   <tr>
     <th><%= render 'relationships/btn', user: user %></th>
+    <td>
+      <% if current_user != user && current_user.following?(user) && user.following?(current_user) %>
+        <%= link_to "チャットを始める", message_path(user.id) %>
+      <% end %>
+    </td>
   </tr>
 </table>
 

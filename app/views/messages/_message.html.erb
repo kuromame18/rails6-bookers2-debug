@@ -1,0 +1,7 @@
+<% messages.each do |message| %>
+  <% if message.send_user.id == current_user.id %>
+    <%= message.chat %>
+  <% else %>
+    <%= message.chat %>
+  <% end %>
+<% end %>
