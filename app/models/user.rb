@@ -16,6 +16,9 @@ class User < ApplicationRecord
 
   has_many :read_counts, dependent: :destroy
 
+  has_many :group_users, dependent: :destroy
+  has_many :groups, through: :group_users
+
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end
